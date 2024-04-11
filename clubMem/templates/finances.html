@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Finances</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="..\..\welcomeStyle.css">
+    <link rel="stylesheet" href="..\..\announcement.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="..\..\employee-homepage.html">Home</a>
+        <a href="..\..\staff-announcements.html">Announcements and Calendar</a>
+        <a href="{{ url_for('show_finances') }}">Club Finances</a>
+        <a href="{{ url_for('show_members') }}">Club Members</a>
+        <a href="..\..\staff-login.html" class="signout-button">Sign Out</a>
+
+        <a style="float: right;">
+            <button type="button" onclick="toggleNotification()" class="icon-button" >
+                <i class="fa fa-bell" style="font-size:36px"></i>
+                <div class="icon-button__badge">4</div>
+            </button>
+        </a>
+    </div>
+
+    <h1>Club Finances</h1>
+    <div id="monthlyFinancialData">
+    </div>
+
+    <div id="filters">
+        <select id="monthFilter">
+            <option value="">--Select Month--</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+
+        </select>
+        <select id="revenueTypeFilter">
+            <option value="">--Select Revenue Type--</option>
+            <option value="Member Payment">Member Payment</option>
+            <option value="Advance Payment">Advance Payment</option>
+            <option value="Unpaid">Unpaid</option>
+
+        </select>
+        <select id="expenseTypeFilter">
+            <option value="">--Select Expense Type--</option>
+            <option value="Hall Rent">Hall Rent</option>
+            <option value="Coaches' Pay">Coaches' Pay</option>
+            <option value="Unpaid Hall Rent">Unpaid Hall Rent</option>
+            <option value="Unpaid Coaches' Pay">Unpaid Coaches' Pay</option>
+
+        </select>
+    </div>
+
+    <table id="financialDataTable">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Revenue</th>
+                <th>Expenses</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for month, details in financial_details.items() %}
+            <tr>
+                <td>{{ month }}</td>
+                <td>
+                    {% for income in details.revenue %}
+                    <p>{{ income.type }}: ${{ income.amount }}</p>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for expense in details.expenses %}
+                    <p>{{ expense.type }}: ${{ expense.amount }}</p>
+                    {% endfor %}
+                </td>
+                <td>{{ details.profit }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="financial-summary">
+        <p id="totalIncome">Total Income: ${{ total_income }}</p>
+        <p id="totalExpenses">Total Expenses: ${{ total_expenses }}</p>
+        <p>Profit: ${{ total_profit }}</p>
+    </div>
+
+    <div class="financial-details">
+        <h2>Income Details</h2>
+        <table id="incomeTable">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Month</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <h2>Expenses Details</h2>
+        <table id="expenseTable">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Month</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <form id="addIncomeForm" method="post" onsubmit="handleAddIncome(event)">
+        <label for="incomeType">Income Type:</label>
+        <input type="text" id="incomeType" name="type" required>
+    
+        <label for="incomeMonth">Month:</label>
+        <input type="text" id="incomeMonth" name="month" required>
+    
+        <label for="incomeAmount">Amount:</label>
+        <input type="number" id="incomeAmount" name="amount" required>
+    
+        <input type="submit" value="Add to Statement">
+    </form>
+    
+    <form id="addExpenseForm" method="post" onsubmit="handleAddExpense(event)">
+        <label for="expenseType">Expense Type:</label>
+        <input type="text" id="expenseType" name="type" required>
+    
+        <label for="expenseMonth">Month:</label>
+        <input type="text" id="expenseMonth" name="month" required>
+    
+        <label for="expenseAmount">Amount:</label>
+        <input type="number" id="expenseAmount" name="amount" required>
+    
+        <input type="submit" value="Add to Statement">
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="..\..\announcement.js"></script>
+
+</body>
+</html>

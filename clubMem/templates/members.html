@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Members Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="..\..\welcomeStyle.css">
+    <link rel="stylesheet" href="..\..\announcement.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="..\..\employee-homepage.html">Home</a>
+        <a href="..\..\staff-announcements.html">Announcements and Calendar</a>
+        <a href="{{ url_for('show_finances') }}">Club Finances</a>
+        <a href="{{ url_for('show_members') }}">Club Members</a>
+        <a href="..\..\staff-login.html" class="signout-button">Sign Out</a>
+
+        <a style="float: right;">
+            <button type="button" onclick="toggleNotification()" class="icon-button" >
+                <i class="fa fa-bell" style="font-size:36px"></i>
+                <div class="icon-button__badge">4</div>
+            </button>
+        </a>
+    </div>
+
+    <h1>Club Members</h1>
+    <input type="text" id="searchBox" placeholder="Search members..." onkeyup="searchMembers()">
+    <select id="sortOptions" onchange="sortMembers(this.value)">
+        <option value="name">Sort by Name</option>
+        <option value="attendance">Sort by Attendance</option>
+        <option value="paid">Sort by Times Paid</option>
+        <option value="notPaid">Sort by Times Not Paid</option>
+    </select>    
+    <table id="membersTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Attendance Count</th>
+                <th>Paid Times</th>
+                <th>Not Paid Times</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <form id="addMemberForm" method="post" onsubmit="addMember(event)">
+        <input type="text" id="newMemberName" placeholder="Name" required>
+        <input type="email" id="newMemberEmail" placeholder="Email" required>
+        <input type="submit" value="Add Member">
+    </form>   
+
+    <script src="..\..\announcement.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="announcement.css">
+    <link rel="stylesheet" href="welcomeStyle.css">
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="member-homepage.html">Home</a>
+        <a href="member-announcements.html">Announcements and Calendar</a>
+        <a href="myBalance.html">My Balance</a>
+        <a href="member-login.html" class="signout-button">Sign Out</a>
+
+        <a style="float: right;">
+            <button type="button" onclick="toggleNotification()" class="icon-button" >
+                <i class="fa fa-bell" style="font-size:36px"></i>
+                <div class="icon-button__badge">4</div>
+            </button>
+        </a>
+    </div>
+
+    <div class="notifi-box" id="box">
+        <h2>Notifications: <span>4</span>
+        <button type="button" class="close-button" onclick="closeNotification()">
+            <i style="font-weight: bolder; align-self: center;">X</i>
+        </button>
+        </h2>
+        
+        <div class="notifi-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/1053/1053916.png">
+            <div class="text">
+            <h4>Workout:</h4>
+            <p>10:00 am - 11:00 am - April 2, 2024</p>
+            </div> 
+        </div>
+
+        <div class="notifi-item">
+            <img src="https://cdn-icons-png.flaticon.com/256/348/348811.png">
+            <div class="text">
+            <h4>Facilities are closed on April 11, 2024</h4>
+            <p>The recreation club is closed on this day.</p>
+            </div> 
+        </div>
+
+        <div class="notifi-item">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/009/345/614/small_2x/yoga-day-vector-design-collection-women-doing-yoga-position-vector-collection-dark-blue-color-yoga-position-design-with-multiple-shape-free-png.png">
+            <div class="text">
+            <h4>Yoga for all Ages!</h4>
+            <p>Starting at 4:00pm to 5pm on April 17, 2024!</p>
+            </div> 
+        </div>
+    </div>
+    
+    <div class="section centered-section">
+        <h1 style="font-size: 36px; font-weight: bolder;">Welcome!</h1>                             <!-- Get current users name and show here -->
+        <p style="font-size: 24px;">Your current balance is:</p>
+        
+        <p id="balanceDisplay" style="font-size: 30px; font-weight: bolder;">$0.00</p>
+        
+        <input type="number" id="depositAmount" placeholder="Deposit Amount">    
+        <button onclick="deposit()" class="button">Deposit</button>
+    
+        <input type="number" id="withdrawAmount" placeholder="Withdraw Amount">
+        <button onclick="withdraw()" class="button">Withdraw</button>
+    </div>
+
+    <div class="section centered-section">
+        <h2 style="font-size: 36px; font-weight: bolder;">Pay for Your Sessions:</h2>
+        <p style="font-size: 24px;">Payment amount: $100</p> 
+        <button onclick="makePayment()" class="button">Make Payment</button>
+    </div>
+
+    <div class="section centered-section">
+        <h2 style="font-size: 36px; font-weight: bolder;">Recent Activities</h2>
+        <div id="activities" style="font-size: 24px;">
+        </div>
+    </div>
+
+    <script>
+
+        let balance = 0; //initially, no money
+    
+        function updateBalanceDisplay() {
+            document.getElementById('balanceDisplay').textContent = `$${balance.toFixed(2)}`;
+        }
+    
+        function deposit() {
+            const depositAmount = parseFloat(document.getElementById('depositAmount').value);
+            if (isNaN(depositAmount) || depositAmount <= 0) {
+                alert("Please enter a valid amount to deposit.");
+                return;
+            }
+            balance += depositAmount;
+            recordActivity('Deposit', depositAmount);
+            updateBalanceDisplay();
+            document.getElementById('depositAmount').value = ''; //clear the input field
+        }
+    
+        function withdraw() {
+            const withdrawAmount = parseFloat(document.getElementById('withdrawAmount').value);
+            if (isNaN(withdrawAmount) || withdrawAmount <= 0) {
+                alert("Please enter a valid amount to withdraw.");
+                return;
+            }
+            if (withdrawAmount > balance) {
+                alert("You cannot withdraw more than the current balance.");
+                return;
+            }
+            balance -= withdrawAmount;
+            recordActivity('Withdrawal', withdrawAmount);
+            updateBalanceDisplay();
+            document.getElementById('withdrawAmount').value = ''; //clear the input field
+        }
+    
+        function makePayment() {
+            const paymentAmount = 100;
+            if (balance >= paymentAmount) {
+                balance -= paymentAmount;
+                recordActivity('Payment', paymentAmount);
+                updateBalanceDisplay();
+                alert('Payment successful!');
+            } 
+            
+            else {
+                alert('Insufficient funds to make the payment.');
+            }
+        }
+    
+        function recordActivity(type, amount) {
+            const date = new Date();
+            activities.unshift({ type, amount, date }); 
+            displayActivities();
+        }
+        
+        let activities = [];
+
+        function formatDate(date) {
+            const options = { month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return date.toLocaleString('en-US', options);
+        }
+
+        function displayActivities() {
+            const activitiesList = document.getElementById('activities');
+            activitiesList.innerHTML = ''; 
+            activities.forEach(activity => {
+                const entry = document.createElement('div');
+                entry.className = 'activity-entry';
+                entry.textContent = `${activity.type}: $${activity.amount.toFixed(2)} on ${formatDate(activity.date)}`;
+                activitiesList.appendChild(entry);
+            });
+        }
+    
+        updateBalanceDisplay();
+    </script>    
+
+    <script src="announcement.js"></script>
+</body>
+</html>

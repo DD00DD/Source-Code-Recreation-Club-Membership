@@ -1,0 +1,224 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.welcome {
+    width: 50%;
+    text-align: center;
+    background-color: powderblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.logo {
+    width: 10%;
+    height: 10%;
+}
+
+.login-form {
+    width: 50%;
+    text-align: center;
+    background-color: powderblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.company-name {
+    font-family: cursive;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: powderblue;
+    padding-left: 20px;
+    text-shadow: 2px 2px black;
+}
+
+h1 {
+    text-align: center;
+}
+
+.welcome button {
+    font-family: cursive;
+    background-color: yellow;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    width: 150px;
+    cursor: pointer; 
+    margin: 10px;
+}
+
+.login-form input {
+    margin: 10px;
+    font-family: cursive;
+}
+
+.login-form button {
+    margin: 10px;
+    font-family: cursive;
+    background-color: lawngreen;
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    width: 80px;
+    cursor: pointer; 
+}
+
+.registration-form {
+    width: 50%;
+    text-align: center;
+    background-color: powderblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.registration-form input {
+    margin: 10px;
+    font-family: cursive;
+}
+
+.registration-form button {
+    margin: 10px;
+    font-family: cursive;
+    background-color: lawngreen;
+    border: none;
+    border-radius: 20px;
+    height: 30px;
+    width: 150px;
+    cursor: pointer; 
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar a {
+    float: left;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbar a.signout-button {
+    float: right;
+    background-color: #e43434;
+}
+
+.navbar a.signout-button:hover {
+    background-color: #c42828;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.section {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 20px;
+    width: calc(50% - 10px);
+    max-width: 925px;
+}
+
+.section img {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+
+.sections-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1850px;
+    gap: 20px;
+}
+
+.half-section {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1; 
+}
+.centered-section {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clickable-image {
+    cursor: pointer;
+}
+
+.hover-enlarge:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+}
+
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 200px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.loyaltyTable {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.num, .he {
+    border: 4px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    font-size: 36px;
+}

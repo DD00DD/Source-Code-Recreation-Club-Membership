@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Login</title>
+    <link rel="stylesheet" href="welcomeStyle.css">
+</head>
+<body>
+    <div class="company-name">
+        <h2>Recreational Club and Activities</h2>
+    </div>
+    <div class="login-form">
+        <h2>Staff Login</h2>
+        <form id="staff-login-form">
+            <input type="text" id="username" placeholder="Employee ID">
+            <br>
+            <input type="password" id="password" placeholder="Password">
+            <br>
+            <button type="submit">Sign in</button>
+        </form>
+        <a href="register.html">Don't have an account?</a>
+        <p>Forgot password? Contact support at 123-456-7890.</p>
+    </div>
+
+    <script>
+        document.getElementById("staff-login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var storedUsers = localStorage.getItem("registeredUsers")
+            if (storedUsers) {
+                users = JSON.parse(storedUsers);
+            }
+            else {
+                users = [];
+            }
+
+            var userFound = false;
+            for (var i = 0; i < users.length; i++) {
+                var user = users[i];
+                if (user.employeeID === username && user.password === password && user.type === "staff") {
+                    userFound = true;
+                    break;
+                }
+            }
+
+            if (userFound) {
+                alert("Success!");
+                window.location.href = "employee-homepage.html";
+            }
+            else {
+                alert("Invalid credentials!")
+            }
+        });
+    </script>
+</body>
+</html>

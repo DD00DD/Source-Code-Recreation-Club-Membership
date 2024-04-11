@@ -1,0 +1,34 @@
+#container {
+    width: 700px;
+    height: auto;
+    border: 10px solid black;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  
+  .row {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #AFAFAF;
+  }
+  
+  .name {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    line-height: 45px;
+  }
+  
+  .score {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+  }
+  
+  .row:nth-child(-n+10):nth-child(n+1) {
+    background: #FDE791;
+  }

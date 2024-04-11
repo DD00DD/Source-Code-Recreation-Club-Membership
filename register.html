@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="welcomeStyle.css">
+</head>
+<body>
+    <div class="company-name">
+        <h2>Recreational Club and Activities</h2>
+    </div>
+    <div class="registration-form">
+        <h2>Create an Account</h2>
+
+        <form id="registration-form">
+            <input type="radio" id="member" name="registration-type" value="member" onclick="showRegistrationForm()">
+            <label for="member">Member</label>
+            <br>
+            <input type="radio" id="staff" name="registration-type" value="staff" onclick="showRegistrationForm()">
+            <label for="staff">Staff</label>
+        </form>
+
+        <div id="member-registration-form" style="display: none;">
+            <h3>Member Registration</h3>
+            <label for="member-username">Name</label>
+            <br>
+            <input type="text" id="member-username" placeholder="Enter your full name...">
+            <br>
+            <label for="member-email">Email address</label>
+            <br>
+            <input type="text" id="member-email" placeholder="Enter your email address...">
+            <br>
+            <label for="member-password">Password</label>
+            <br>
+            <input type="password" id="member-password" placeholder="Enter your password...">
+            <br>
+            <button type="button" onclick="registerMember()">Create Account</button>
+        </div>
+
+        <div id="staff-registration-form" style="display: none;">
+            <h3>Staff Registration</h3>
+            <label for="staff-id">Employee ID</label>
+            <br>
+            <input type="text" id="staff-id" placeholder="Enter your employee ID...">
+            <br>
+            <label for="staff-username">Name</label>
+            <br>
+            <input type="text" id="staff-username" placeholder="Enter your full name...">
+            <br>
+            <label for="staff-email">Email address...</label>
+            <br>
+            <input type="text" id="staff-email" placeholder="Enter your email address...">
+            <br>
+            <label for="staff-password">Password</label>
+            <br>
+            <input type="password" id="staff-password" placeholder="Enter your password...">
+            <br>
+            <button type="button" onclick="registerStaff()">Create Account</button>
+        </div>
+        
+    </div>
+    
+    <script>
+        function showRegistrationForm() {
+            var memberForm = document.getElementById("member-registration-form");
+            var staffForm = document.getElementById("staff-registration-form");
+            if (document.getElementById("member").checked) {
+                memberForm.style.display = "block";
+                staffForm.style.display = "none";
+            }
+            else if (document.getElementById("staff").checked) {
+                memberForm.style.display = "none";
+                staffForm.style.display = "block";
+        }
+    }
+
+        var registeredUsers = [];
+
+        function registerMember() {
+            var username = document.getElementById("member-username").value;
+            var email = document.getElementById("member-email").value;
+            var password = document.getElementById("member-password").value;
+
+            if (username && email && password) {
+                var newUser = {
+                    type: "member",
+                    username: username,
+                    email: email,
+                    password: password
+                };
+                registeredUsers.push(newUser);
+                localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+                window.location.href = "member-login.html";
+            }
+            else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        function registerStaff() {
+            var employeeID = document.getElementById("staff-id").value;
+            var username = document.getElementById("staff-username").value;
+            var email = document.getElementById("staff-email").value;
+            var password = document.getElementById("staff-password").value;
+            if (employeeID && username && email && password) {
+                var newUser = {
+                    type: "staff",
+                    employeeID: employeeID,
+                    username: username,
+                    email: email,
+                    password: password
+                };
+                registeredUsers.push(newUser);
+                localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+                window.location.href = "staff-login.html";
+            }
+            else {
+                alert("Please fill in all fields.");
+            }
+        }
+    
+    </script>
+</body>
+</html>

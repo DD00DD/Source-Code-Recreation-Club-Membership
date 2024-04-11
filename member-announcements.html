@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Announcements and Calendar</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="announcement.css" rel="stylesheet">
+		<link rel="stylesheet" href="welcomeStyle.css">
+	</head>
+
+	<body>
+		
+		<div style="position: absolute; margin-left: 100px; margin-top: 100px;">
+			<h1 style="font-weight: bolder; font-size: 36px;">Upcoming Events:</h1>
+			<p><b>How to attend a session:</b> To schedule a session, please add one of the following events to your Google Calendar.</p>
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff
+			&showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&src=NmFkMmJiZTI3NmYxMWYyMGEyMzBjODgzNDg4ODkyZTBhNWQ
+			xYTE5OWY5ZDAxMGQ5ZjFiYzRlNTdiYWYwZDA3NEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2FuYWRpYW4jaG9saWRheUBncm91cC5
+			2LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23F09300&color=%234285F4" style="border:solid 1px #777" width="800" height="600"></iframe>
+		</div>
+
+		<div style="position: absolute; margin-top: 100px; margin-left: 1000px;">
+			<h1 style="font-weight: bolder; font-family: Helvetica, Arial; font-size: 36px;">Announcements:</h1>
+			<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff
+			&showTitle=0&showNav=0&showPrint=0&showTabs=0&showCalendars=0&mode=AGENDA&src=NmFkMmJiZTI3NmYxMWYyMGEyMzBjODgzNDg
+			4ODkyZTBhNWQxYTE5OWY5ZDAxMGQ5ZjFiYzRlNTdiYWYwZDA3NEBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23F09300" 
+			style="border:solid 1px #777" width="400" height="600"></iframe>
+		</div>
+
+		<div class="notifi-box" id="box">
+			<h2>Notifications: <span>4</span>
+			<button type="button" class="close-button" onclick="closeNotification()">
+				<i style="font-weight: bolder; align-self: center;">X</i>
+			</button>
+			</h2>
+			
+			<div class="notifi-item">
+				<img src="https://cdn-icons-png.flaticon.com/512/1053/1053916.png">
+				<div class="text">
+				   <h4>Workout:</h4>
+				   <p>10:00 am - 11:00 am - April 2, 2024</p>
+				</div> 
+			</div>
+
+			<div class="notifi-item">
+				<img src="https://cdn-icons-png.flaticon.com/256/348/348811.png">
+				<div class="text">
+				   <h4>Facilities are closed on April 11, 2024</h4>
+				   <p>The recreation club is closed on this day.</p>
+				</div> 
+			</div>
+
+			<div class="notifi-item">
+				<img src="https://static.vecteezy.com/system/resources/thumbnails/009/345/614/small_2x/yoga-day-vector-design-collection-women-doing-yoga-position-vector-collection-dark-blue-color-yoga-position-design-with-multiple-shape-free-png.png">
+				<div class="text">
+				   <h4>Yoga for all Ages!</h4>
+				   <p>Starting at 4:00pm to 5pm on April 17, 2024!</p>
+				</div> 
+			</div>
+		</div>	
+
+		<div class="navbar">
+			<a href="member-homepage.html">Home</a>
+			<a href="member-announcements.html">Announcements and Calendar</a>
+			<a href="myBalance.html">My Balance</a>
+			<a href="member-login.html" class="signout-button">Sign Out</a>
+
+			<a style="float: right;">
+				<button type="button" onclick="toggleNotification()" class="icon-button" >
+					<i class="fa fa-bell" style="font-size:36px"></i>
+					<div class="icon-button__badge">4</div>
+				</button>
+			</a>
+		</div>
+
+		<script src="announcement.js"></script>
+	</body>
+
+</html>
+
+
+

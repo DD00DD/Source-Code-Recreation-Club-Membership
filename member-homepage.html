@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Member Home Page</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="welcomeStyle.css">
+        <link rel="stylesheet" href="announcement.css">
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            <a href="member-homepage.html">Home</a>
+            <a href="member-announcements.html">Announcements and Calendar</a>
+            <a href="myBalance.html">My Balance</a>
+            <a href="member-login.html" class="signout-button">Sign Out</a>
+
+            <a style="float: right;">
+                <button type="button" onclick="toggleNotification()" class="icon-button" >
+                    <i class="fa fa-bell" style="font-size:36px"></i>
+                    <div class="icon-button__badge">4</div>
+                </button>
+            </a>
+        </div>
+
+        <div class="notifi-box" id="box">
+            <h2>Notifications: <span>4</span>
+            <button type="button" class="close-button" onclick="closeNotification()">
+                <i style="font-weight: bolder; align-self: center;">X</i>
+            </button>
+            </h2>
+            
+            <div class="notifi-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1053/1053916.png">
+                <div class="text">
+                <h4>Workout:</h4>
+                <p>10:00 am - 11:00 am - April 2, 2024</p>
+                </div> 
+            </div>
+
+            <div class="notifi-item">
+                <img src="https://cdn-icons-png.flaticon.com/256/348/348811.png">
+                <div class="text">
+                <h4>Facilities are closed on April 11, 2024</h4>
+                <p>The recreation club is closed on this day.</p>
+                </div> 
+            </div>
+
+            <div class="notifi-item">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/009/345/614/small_2x/yoga-day-vector-design-collection-women-doing-yoga-position-vector-collection-dark-blue-color-yoga-position-design-with-multiple-shape-free-png.png">
+                <div class="text">
+                <h4>Yoga for all Ages!</h4>
+                <p>Starting at 4:00pm to 5pm on April 17, 2024!</p>
+                </div> 
+            </div>
+        </div>	
+
+        <div class="content">
+            <div class="section">
+                <h1>Classes Happen Every Week</h1>
+                <img src="dance.jpeg">
+                <button class="button" onclick="window.location.href='member-announcements.html';">Schedule Your Next Class</button>
+            </div>
+            
+            <div class="sections-row">
+                <div class="half-section">
+                    <h1>Leaderboard</h1>
+                    <p>Top 10 members get a 10% discount on classes.</p>
+                    <img class="hover-enlarge clickable-image" src="leaderboard.jpg" onclick="window.location.href='member-leaderboard.html';">
+                </div>
+                <div class="half-section">
+                    <h1>Loyalty Points</h1>
+                    <p>Earn points with every class you attend! Get a 10% discount for every 10 points.</p>
+                    <img class="hover-enlarge clickable-image" src="loyalty-points.jpg" onclick="window.location.href='member-loyalty.html';">
+                </div>
+            </div>
+        </div>
+
+        
+        <script src="announcement.js"></script>
+    </body>
+</html>

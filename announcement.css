@@ -1,0 +1,103 @@
+.icon-button {
+  color: #333333;
+  background: #dddddd;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  right: 50px;
+  top: 20px;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+}
+
+.icon-button:active {
+  background: #cccccc;
+}
+
+.covered{
+  background-color: yellow;
+}
+
+.icon-button__badge {
+  position: absolute;
+  top: 10px;
+  right: 175px;
+  width: 25px;
+  height: 25px;
+  background: red;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
+  background-color: white;
+  border: none;
+}
+
+.notifi-box {
+	width: 300px;
+	height: auto;
+	position: absolute;
+	top: 73px;
+	right: 35px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  visibility: hidden;
+  background-color: white;
+}
+
+.notifi-box h2 {
+	font-size: 14px;
+	padding: 10px;
+	border-bottom: 1px solid #eee;
+	color: #999;
+}
+
+.notifi-box h2 span {
+	color: #f00;
+}
+
+.notifi-item img{
+	height: 64px; 
+  width: 64px; 
+  display: inline-block;
+  padding: 10px;
+}
+
+.notifi-item {
+	display: flex;
+	border-bottom: 1px solid #eee;
+	padding: 15px 5px;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+
+.notifi-item:hover {
+	background-color: #eee;
+}
+
+.notifi-item .text h4 {
+	color: black;
+	font-size: 16px;
+  font-weight: bolder;
+	margin-top: 10px;
+}
+
+.notifi-item .text p {
+	color: #aaa;
+	font-size: 12px;
+}
